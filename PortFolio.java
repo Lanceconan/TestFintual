@@ -50,13 +50,25 @@ public class PortFolio{
 	}
 
 	/*
+	 * Metodo auxiliar para validar numero de entrada, si el numero ingresado no es válido, retornará 10
+	 */
+	private int validarNumero(String sTexto){
+		try {
+		
+			return Integer.parseInt(sTexto);
+		} catch (NumberFormatException nfe){
+			return 10;
+		}
+	}
+
+	/*
 	 *	Metodo de ejecución del código
 	 */
 	public static void main(String args[]){
 		Scanner reader = new Scanner(System.in);
 		System.out.print("Introduce número de stock a generar de manera aleatoria: ");
-		int numero = reader.nextInt();
-		PortFolio portFolio =  new PortFolio(numero);
+		String sTexto = reader.next();
+		PortFolio portFolio =  new PortFolio(validarNumero(sTexto));
 
 		/*De aquí en más usar las clases y metodos a conveniencia*/
 	}
